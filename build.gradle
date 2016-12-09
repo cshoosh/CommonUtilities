@@ -12,9 +12,36 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.jfrog.bintray" version "1.7"
+}
+
 allprojects {
     repositories {
         jcenter()
+    }
+}
+
+ext {
+    compiledVersionName = '1.0.1'
+}
+
+bintray {
+    user = "$bintrayUser"
+    key = "$bintrayApiKey"
+    pkg {
+        repo = 'maven'
+        name = 'common-utilities'
+        userOrg = 'cshoosh'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/cshoosh/CommonUtilities.git'
+        version {
+            name = rootProject.compiledVersionName
+            desc = 'Common Utilities For Common Tasks'
+            released  = new Date()
+            vcsTag = '1.0'
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
     }
 }
 
