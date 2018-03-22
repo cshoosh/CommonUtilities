@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CommonUtilities.iml" filepath="$PROJECT_DIR$/.idea/CommonUtilities.iml" />
       <module fileurl="file://$PROJECT_DIR$/CommonUtilities.iml" filepath="$PROJECT_DIR$/CommonUtilities.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-utils/app.iml" filepath="$PROJECT_DIR$/common-utils/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-utils/common-utils.iml" filepath="$PROJECT_DIR$/common-utils/common-utils.iml" />
     </modules>
   </component>
 </project>

@@ -1,49 +1,35 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.kotlin_version = '1.2.30'
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
-plugins {
-    id "com.jfrog.bintray" version "1.7"
-}
 
 allprojects {
+    tasks.withType(Javadoc).all {
+        enabled = false
+    }
+
     repositories {
         jcenter()
+        google()
     }
 }
 
-ext {
-    compiledVersionName = '1.0.1'
-}
-
-bintray {
-    user = "$bintrayUser"
-    key = "$bintrayApiKey"
-    pkg {
-        repo = 'maven'
-        name = 'common-utilities'
-        userOrg = 'cshoosh'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/cshoosh/CommonUtilities.git'
-        version {
-            name = rootProject.compiledVersionName
-            desc = 'Common Utilities For Common Tasks'
-            released  = new Date()
-            vcsTag = '1.0'
-            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
-        }
-    }
-}
 
 task clean(type: Delete) {
     delete rootProject.buildDir
